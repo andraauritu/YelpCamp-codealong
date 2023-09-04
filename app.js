@@ -4,8 +4,7 @@ if (process.env.NODE_ENV !== "production") { //if we are in development mode, re
 }
 
 
-// console.log(process.env.SECRET) //this is how we access the variables defined in the .env file
-// console.log(process.env.API_KEY)
+
 
 const express = require('express');
 const path = require('path');
@@ -134,7 +133,6 @@ passport.deserializeUser(User.deserializeUser()); //unstore the user in the sess
 app.use(flash());
 app.use((req, res, next) => { //this is a middleware that will run for every single request
     //we have access to these on every single template
-    console.log(req.query);
     res.locals.currentUser = req.user; //this is the user that is logged in
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');

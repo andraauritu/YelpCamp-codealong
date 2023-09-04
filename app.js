@@ -4,8 +4,8 @@ if (process.env.NODE_ENV !== "production") { //if we are in development mode, re
 }
 
 
-console.log(process.env.SECRET) //this is how we access the variables defined in the .env file
-console.log(process.env.API_KEY)
+// console.log(process.env.SECRET) //this is how we access the variables defined in the .env file
+// console.log(process.env.API_KEY)
 
 const express = require('express');
 const path = require('path');
@@ -169,6 +169,8 @@ app.use((err, req, res, next) => { //this is the generic error handler
     // res.send('Oh no smth went wrong!')
 });
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
 
 

@@ -47,7 +47,7 @@ const CampgroundSchema = new Schema({ //dont need to write mongoose.Schema becau
         }]
 }, opts); //this is an option that we pass to the schema to tell it to include virtual properties when we convert to JSON
 
-CampgroundSchema.post('findOneAndDelete', async function (doc) { //this is a query middleware
+CampgroundSchema.post('findOneAndDelete', async function (doc) { //this is a query middleware that will run after we delete a campground
     if (doc) {
         await Review.deleteMany({
             _id: {
